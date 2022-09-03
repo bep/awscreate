@@ -1,4 +1,4 @@
-package golibtemplate
+package awscreate
 
 func Foo() string {
 	return "foo"
