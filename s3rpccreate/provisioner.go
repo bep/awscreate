@@ -253,12 +253,12 @@ func create(ctx context.Context, adminCfg aws.Config, inputs createInputs) (Crea
 					Rules: []types.LifecycleRule{
 						{
 							ID: aws.String("Expire all after 1 day"),
-							Filter: &types.LifecycleRuleFilterMemberPrefix{
-								Value: "",
+							Filter: &types.LifecycleRuleFilter{
+								Prefix: aws.String(""),
 							},
 							Status: types.ExpirationStatusEnabled,
 							Expiration: &types.LifecycleExpiration{
-								Days: 1,
+								Days: aws.Int32(1),
 							},
 						},
 					},
@@ -328,10 +328,10 @@ func create(ctx context.Context, adminCfg aws.Config, inputs createInputs) (Crea
 			_, err = s3Client.PutPublicAccessBlock(ctx, &s3.PutPublicAccessBlockInput{
 				Bucket: bucketInput.Bucket,
 				PublicAccessBlockConfiguration: &types.PublicAccessBlockConfiguration{
-					BlockPublicAcls:       true,
-					BlockPublicPolicy:     true,
-					IgnorePublicAcls:      true,
-					RestrictPublicBuckets: true,
+					BlockPublicAcls:       aws.Bool(true),
+					BlockPublicPolicy:     aws.Bool(true),
+					IgnorePublicAcls:      aws.Bool(true),
+					RestrictPublicBuckets: aws.Bool(true),
 				},
 			})
 
