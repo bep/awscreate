@@ -1,2 +1,1 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/bep/awscreate)](https://goreportcard.com/report/github.com/bep/awscreate)
 [![GoDoc](https://godoc.org/github.com/bep/awscreate?status.svg)](https://godoc.org/github.com/bep/awscreate)
